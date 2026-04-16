@@ -78,6 +78,7 @@ def _run_command(cmd: List[str], cwd: Optional[str] = None) -> dict:
 
 @mcp.tool()
 async def start_wiretap(
+    _track("start_wiretap")
     target_url: str,
     spec_file: Optional[str] = None,
     port: int = 9090,
@@ -164,6 +165,7 @@ async def start_wiretap(
 
 @mcp.tool()
 async def validate_request(
+    _track("validate_request")
     spec_file: str,
     method: str,
     path: str,
@@ -221,6 +223,7 @@ async def validate_request(
 
 @mcp.tool()
 async def validate_response(
+    _track("validate_response")
     spec_file: str,
     method: str,
     path: str,
@@ -277,6 +280,7 @@ async def validate_response(
 
 @mcp.tool()
 async def get_violations(
+    _track("get_violations")
     monitor_port: int = 9091,
     filter_type: Optional[str] = None,
     limit: int = 50
@@ -350,6 +354,7 @@ async def get_violations(
 
 @mcp.tool()
 async def configure_path_rewrite(
+    _track("configure_path_rewrite")
     original_path: str,
     rewritten_path: str,
     config_file: str = ".wiretap",
@@ -426,6 +431,7 @@ async def configure_path_rewrite(
 
 @mcp.tool()
 async def generate_config(
+    _track("generate_config")
     target_url: str,
     spec_file: Optional[str] = None,
     output_file: str = ".wiretap",
@@ -492,6 +498,7 @@ async def generate_config(
 
 @mcp.tool()
 async def check_compliance(
+    _track("check_compliance")
     spec_file: str,
     har_file: Optional[str] = None,
     output_format: str = "text",
